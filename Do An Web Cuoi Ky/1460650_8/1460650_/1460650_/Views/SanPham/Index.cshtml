@@ -1,0 +1,87 @@
+﻿@model PetaPoco.Page<DienThoaiShopConnection.sanpham>
+@{
+    ViewBag.Title = "Index";
+}
+<h1>Sản Phẩm Mới</h1>
+<div class="container">
+    <ul class="pagination">
+        @for (int i = 1; i <= Model.TotalPages; i++)
+        {
+            <content> @Html.ActionLink(i.ToString(), "Index", new { page = i })  </content>
+        }
+
+    </ul>
+</div>
+@*@foreach (var item in Model.Items)
+    {
+            <div class="prod_box">
+                <div class="top_prod_box"></div>
+                <div class="center_prod_box">
+                    <div class="product_title">@Html.ActionLink(item.TenSanPham, "Details", new { id = item.MaSanPham })</div>
+                    <div class="product_img"><a href="details.html">
+                        <img src="@item.hinhanh" width="100" height="102 " alt="" border="0" /></a></div>
+                    <div class="prod_price"><span class="price">@item.Gia</span></div>
+                </div>
+                <div class="bottom_prod_box"></div>
+                <div class="prod_details_tab">
+                    @using (Html.BeginForm("Them", "GioHang", FormMethod.Post))
+                    {
+                        @Html.Hidden("maSanPham", item.MaSanPham)
+
+                        <button class="btn btn-default add-to-cart" type="submit">
+                            <i class="fa fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    }
+
+                 <a href="http://all-free-download.com/free-website-templates/" title="header=[Add to cart] body=[&nbsp;] fade=[on]"><img src="~/images/cart.gif" alt="" border="0" class="left_bt" /></a> <a href="http://all-free-download.com/free-website-templates/" title="header=[Specials] body=[&nbsp;] fade=[on]"><img src="~/images/favs.gif" alt="" border="0" class="left_bt" /></a> <a href="http://all-free-download.com/free-website-templates/" title="header=[Gifts] body=[&nbsp;] fade=[on]"><img src="~/images/favorites.gif" alt="" border="0" class="left_bt" /></a> <a href="details.html" class="prod_details">details</a> </div>
+            </div>
+    }*@
+<div class="maincontent-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="latest-product">
+                    <div class="product-carousel">
+                        @foreach (var item in Model.Items)
+                         {
+                               <div class="single-product">
+                                        <div class="product-f-image">
+                                            <img src="@item.hinhanh" alt="" />
+                                            <div class="product-hover">
+                                                <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                                <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                            </div>
+                                        </div>
+
+                                        <h2><a href="single-product.html">@Html.ActionLink(item.TenSanPham, "Details", new { id = item.MaSanPham })</a></h2>
+
+                                        <div class="product-carousel-price">
+                                            <ins>@item.Gia</ins>
+                                            <h3>@item.MoTa</h3>
+                                            @using (Html.BeginForm("Them", "GioHang", FormMethod.Post))
+                                            {
+                                                @Html.Hidden("maSanPham", item.MaSanPham)
+
+                                                <button class="btn btn-default add-to-cart" type="submit">
+                                                    <i class="fa fa-shopping-cart"></i> Add to Cart
+                                                </button>
+                                            }
+                                        </div>
+                                    </div>
+                               
+                        }
+                    </div>
+                </div>
+                </div></div></div></div>
+
+
+
+
+
+
+
+
+
+
+

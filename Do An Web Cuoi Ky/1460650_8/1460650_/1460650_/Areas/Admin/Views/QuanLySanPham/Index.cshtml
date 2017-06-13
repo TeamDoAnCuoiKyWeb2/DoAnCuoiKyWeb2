@@ -1,0 +1,81 @@
+﻿@model IEnumerable<DienThoaiShopConnection.sanpham>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("THÊM MỚI SẢN PHẨM", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Mã Sản Phẩm
+        </th>
+        <th>
+           Tên Sản Phẩm
+        </th>
+        <th>
+           Hình Ảnh
+        </th>
+        <th>
+            Giá
+        </th>
+        <th>
+           Mã Loại
+        </th>
+        <th>
+           Nhà Sản Xuất
+        </th>
+        <th>
+           Số Lượng Tồn
+        </th>
+        <th>
+           Mô Tả
+        </th>
+        <th>
+            Bị Xóa
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaSanPham)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenSanPham)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hinhanh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaLoai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NhaSX)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLuongTon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MoTa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BiXoa)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

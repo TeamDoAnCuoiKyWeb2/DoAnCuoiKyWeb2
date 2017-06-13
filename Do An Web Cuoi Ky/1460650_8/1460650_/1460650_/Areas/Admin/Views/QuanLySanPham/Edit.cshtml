@@ -1,0 +1,106 @@
+﻿@model DienThoaiShopConnection.sanpham
+
+@{
+    ViewBag.Title = "Edit";
+}
+<script type="text/javascript" src="~/ckeditor_4.6.2_standard/ckeditor/ckeditor.js"></script>
+<h2>Edit</h2>
+
+@using (Html.BeginForm("Edit", "QuanLySanPham", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Sản Phẩm </h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+          Mã Sản Phẩm
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaSanPham, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaSanPham, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+         Tên Sản Phẩm
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenSanPham, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenSanPham, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+        Hình Ảnh
+            <div class="col-md-10">
+                <input type="file" name="imagefile" />
+                @Html.EditorFor(model => model.hinhanh, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.hinhanh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+          Giá Sản Phẩm
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Gia, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Gia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+           Mã Loại
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaLoai, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaLoai, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+          Nhà Sản Xuất
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NhaSX, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NhaSX, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            Số Lượng Tồn
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SoLuongTon, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SoLuongTon, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+           Mô Tả
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.MoTa, new { @id = "FullDescription", @class = "form-control", @rows = "100" })
+                @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger" })
+                <script>
+                    CKEDITOR.replace("FullDescription");
+                </script>
+                @*@Html.EditorFor(model => model.MoTa, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+           Bị Xóa
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BiXoa, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BiXoa, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        </div>
+    </div>
+}
+
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@

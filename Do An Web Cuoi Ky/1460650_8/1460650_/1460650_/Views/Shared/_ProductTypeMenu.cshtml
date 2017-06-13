@@ -1,0 +1,12 @@
+﻿@model IEnumerable<DienThoaiShopConnection.loaisp>
+    @{
+        ViewBag.Title = "_ProductTypeMenu";
+    }
+
+    <h2>Loại Sản Phẩm </h2>
+    <ul class="left_menu">
+        @foreach (var item in Model)
+        {
+            <li><a href="@Url.Action("Index","LoaiSanPham",new { id=@item.ID})">@item.TenLoai</a></li>
+        }
+    </ul>

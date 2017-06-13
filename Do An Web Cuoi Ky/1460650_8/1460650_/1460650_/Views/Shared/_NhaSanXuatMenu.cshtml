@@ -1,0 +1,15 @@
+﻿@model IEnumerable<DienThoaiShopConnection.nhasx>
+@*@model PetaPoco.Page<DienThoaiShopConnection.nhasx>*@
+@{
+    ViewBag.Title = "_NhaSanXuatMenu";
+}
+
+<h2>Nhà Sản Xuất</h2>
+<ul class="left_menu">
+    @foreach (var item in Model)
+    {
+        <li><a href="@Url.Action("Index","NhaSanXuat",new { id=@item.ID})">@item.TenNSX</a></li>
+    }
+</ul>
+
+

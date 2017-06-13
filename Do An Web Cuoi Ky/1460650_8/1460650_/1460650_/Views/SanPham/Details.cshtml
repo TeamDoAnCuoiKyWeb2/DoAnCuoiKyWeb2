@@ -1,0 +1,46 @@
+﻿@model DienThoaiShopConnection.sanpham
+@{
+    ViewBag.Title = "Details";
+
+}
+@*<div class="right_content">
+<div class="prod_box">
+    <div class="top_prod_box"></div>
+    <div class="center_prod_box">
+        <div class="product_title"><h2>@Model.TenSanPham</h2></div>
+        <div class="product_img">
+            <a href="details.html">
+                <img src="@Model.hinhanh"  width="220" height="220" alt="" border="0" />
+            </a>
+        </div>
+        <div class="prod_price"><span class="price">@Model.Gia VND</span></div>
+    </div>
+    </div>*@
+    <h1> Chi Tiết Sản Phẩm </h1>
+    <div class="center_content">
+        <div class="center_title_bar">@Model.TenSanPham</div>
+        <div class="prod_box_big">
+            <div class="top_prod_box_big"></div>
+            <div class="center_prod_box_big">
+                <div class="product_img_big">
+                    <a href="javascript:popImage('images/big_pic.jpg','Some Title')" title="header=[Zoom] body=[&nbsp;] fade=[on]"><img src="@Model.hinhanh" alt="" border="0" width="190"  height="200"/></a>
+                    <div class="thumbs"> <a href="http://all-free-download.com/free-website-templates/" title="header=[Thumb1] body=[&nbsp;] fade=[on]"><img src="@Model.hinhanh" alt="" border="0" width="200"  height="200" /></a> <a href="http://all-free-download.com/free-website-templates/" title="header=[Thumb2] body=[&nbsp;] fade=[on]"><img src="@Model.hinhanh" alt="" border="0" /></a> <a href="http://all-free-download.com/free-website-templates/" title="header=[Thumb3] body=[&nbsp;] fade=[on]"><img src="@Model.hinhanh" alt="" border="0" /></a> </div>
+                </div>
+                <div class="details_big_box">
+                    <div class="product_title_big">@Model.MoTa</div>
+                    <div class="prod_price_big"><span class="reduce">350$</span> <span class="price">@Model.Gia VND</span></div>
+                    <a href="http://all-free-download.com/free-website-templates/" class="addtocart">add to cart</a> <a href="http://all-free-download.com/free-website-templates/" class="compare">compare</a>
+                </div>
+            </div>
+            <div class="bottom_prod_box_big"></div>
+        </div>
+        </div>
+      @*<img src="@Model.hinhanh" width="220" height="220" alt="" border="0" />
+       @Model.TenSanPham
+        @Model.Gia
+        @Model.MoTa*@
+        <div class="row">
+            <div class="center_content">
+                @Html.Action("Index", "BinhLuan", new { MaSanPham = Model.MaSanPham })
+            </div>
+        </div>
