@@ -1,0 +1,15 @@
+﻿@model IEnumerable<DienThoaiShopConnection.sanpham>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@foreach (var item in Model)
+{
+            @Html.ActionLink(item.TenSanPham, "Details", new { id = item.MaSanPham})
+        
+            <img src="@item.hinhanh" width="100" height="100 " alt="" border="0" />
+}
+
+
+
