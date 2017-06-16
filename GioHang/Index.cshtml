@@ -1,0 +1,24 @@
+﻿@model IEnumerable<DienThoaiShopConnection.v_GioHang>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@foreach (var item in Model)
+{
+    <div>
+        @using (Html.BeginForm("CapNhat", "GioHang", FormMethod.Post))
+        {
+            @*@Html.Hidden("id", item.id);
+                <div>@item.TenSanPham</div>
+                <div><input name="so_luong" value="@item.SoLuong" /><input type="submit" value="Cap Nhat" /></div>*@
+            <input name="masanpham" value="@item.MaSanPham" />
+            <input name="gia" value="@item.TenSanPham" />
+            <input name="gia" value="@item.Gia" />
+            <input name="soluong" value="@item.SoLuong" />
+            <input type="submit" class="btn btn-2" value="Thêm vào giỏ" />
+
+        }
+    </div>
+}
+
